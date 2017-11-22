@@ -5,6 +5,11 @@ const bodyParser = require("body-parser");
 const app = express();
 const PORT = 3000;
 
+app
+  .use(bodyParser.urlencoded({ extended: true }))
+  .use(bodyParser.json())
+  .use(express.static(path.join(__dirname, "../", "client")));
+
 app.get("/", (req, res) => {
   res.sendStatus(200);
 });
